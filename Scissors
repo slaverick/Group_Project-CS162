@@ -1,0 +1,46 @@
+
+class Scissors : public Tool
+{
+  private:
+    (inherited)
+  public:
+    Scissors();
+    fight(Tool*)
+ };
+ 
+ Scissors::Scissors()
+ {
+  strength = 1;
+  type - s 
+ }
+ 
+ bool Scissors::fight(Tool t)
+{
+  char c = t.type;
+  
+  switch (c)
+  {
+  case r
+  {
+    if ((static_cast<double>(strength/2) > t.strength)
+      return true;
+    else
+      return false;
+    break;
+  }
+  case p
+  {
+    if (strength*2 > t.strength)
+      return true;
+    else
+      return false;
+    break;
+  }
+  case s
+  {
+    if (strength > t.strength)
+       return true;
+    else
+      return false;
+    break;
+  }
