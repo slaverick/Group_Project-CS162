@@ -27,7 +27,6 @@ int main()
 	Tool *Computer[] = { new rock(1), new paper(1), new Scissor(1) }
 	//create game object start
 	RPSGame Game();
-	int play = 1; //set play to 1=true
 	char type = 'r';   //set as intial value
 
 	while (type != 'e') { //Use while loop to run the game
@@ -49,7 +48,7 @@ int main()
 		cout << "Choose your tool (r-rock, p-paper, s-scissor, e-exit):" << endl;
 		char choice;
 		cin >> choice;
-		if (choice == ‘r’) {
+		if (choice == â€˜râ€™) {
 			int y = 0;
 			cout << "User picked rock" << endl;
 		}
