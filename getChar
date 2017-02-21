@@ -1,0 +1,15 @@
+//gets a char from the user
+
+#include <iostream>
+
+char getChar(char);
+
+
+char getChar()
+{
+  char c;
+  while (!(std::cin >> c)) {
+    std::cout "Please enter an alphabet character.";
+     
+  return c;
+}
