@@ -12,12 +12,92 @@
 #include <iostream>
 #include <string>
 #include <csdtlib>
-
+#include <srand>
 
 using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
+
+int scissorsCout=0;  
+int rockCount=0;
+int paperCount=0;
+std::string lastPlayerToolName;
+int turnCount=0;
+
+/*
+// Name: ComputerTurn
+// Inputs:none
+// Outputs: int with array index for selected tool for computer
+// Description: chosses a tool for the AI to use. 50% of the time will chose a random tool
+// 25% picks a tool to beat the last tool selected by user. 25% picks a tool to beat the most comon tool chosen by user                             
+// on the first round will always pick a ranodm tool. 
+*/ 
+int computerTurn()
+{
+     
+     if (turnCount==1 || (rand() % 2 +1)==1)
+     {
+         int randomChoice;
+         randomChoice =  (rand() % 3) +1
+         if (randomChoice==1)
+         {
+             return 1;
+         }
+         else if (randomChoice==2)
+         {
+             return 2;
+         }
+         else
+         {
+             return 3;
+         }  
+     }
+     else
+     {
+         if ((rand) % 2 +1 ==2)
+         {
+           if (lastPlayerToolName=="Rock")
+           {
+               return 2;
+           }
+           else if (lastPlayerToolName=="Paper")
+           {
+               return 3;
+           }
+           else
+           {
+               return 1;
+           }
+         }
+         else
+         {
+            if (rockCount> paperCount)
+            {
+                if (rockCount > scissorsCout)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            else
+            {
+                 if (paperCount > scissorsCout)
+                {
+                    return 3;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            
+         }
+     }
+}
 
 int main()
 {
@@ -51,21 +131,28 @@ int main()
 		if (choice == ‘r’) {
 			int y = 0;
 			cout << "User picked rock" << endl;
+			rockCount++;
+			lastPlayerToolName = "Rock";
 		}
 		else if choice == 'p' {
 			int y = 1
 				cout << "User picked paper" << endl;
+				paperCount++;
+				lastPlayerToolName = "Paper";
 		}
 		else if (choice == 's') {
 			int	y = 2;
 			cout << "User picked scissor" << endl;
+			scissorCount++;
+			lastPlayerToolName = "Scissor";
 		}
 		else {
 			type = 'e';
 		}
 		int x = rand() % 2;
 		bool h = Human[y]->fight(Tool*Computer);
-		bool c = Computer[x]->fight(Tool*Human);
+		int computerChoice = computerTurn();
+		bool c = Computer[computerChoice]->fight(Tool*Human);
 
 		if ((h == 1) && (c == 0)) {
 			cout << "Human win!" << endl;
@@ -82,6 +169,7 @@ int main()
 		cout << "Human wins: " << Game.gethuman_wins << endl;
 			cout << "Computer wins: " << Game.getcomputer_wins << endl;
 			cout << "Ties: " << Game.getties << endl;
+			turnCount++;
 	} //end while loop
 		
 	//Deallocate dynamic memory
@@ -93,3 +181,8 @@ int main()
 	}
 	return 0;
 }
+
+
+
+
+
