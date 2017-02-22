@@ -7,12 +7,22 @@
 **  Description: 
 **
 ***************************************************************************/
-//#include "stdafx.h"
-#include "RPSGame.h"
+#include "stdafx.h"
+#include "RPSGame.hpp"
+#include "Tool.hpp"
+#include "Rock.hpp"
+#include "Paper.hpp"
+#include "Scissors.hpp"
+
 #include <iostream>
 #include <string>
+
 #include <csdtlib>
-#include <srand>
+
+
+#include <cstdlib>
+
+
 
 using std::cin;
 using std::cout;
@@ -103,13 +113,14 @@ int main()
 {
 
 	//Create dynamic array for
-	Tool *Human[] = { new rock(1), new paper(1), new Scissor(1) }
-	Tool *Computer[] = { new rock(1), new paper(1), new Scissor(1) }
+	Tool *Human[] = { new Rock(1), new Paper(1), new Scissors(1) };
+	Tool *Computer[] = { new Rock(1), new Paper(1), new Scissors(1) };
 	//create game object start
-	RPSGame Game();
-	char type = 'r';   //set as intial value
+	RPSGame Game(Human, Computer);
+	
+	char choice = 'r';   //set as intial value
 
-	while (type != 'e') { //Use while loop to run the game
+	while (choice != 'e') { //Use while loop to run the game
 		cout << "Welcome to Rock, Paper, Scissors! Do you want to choose different ";
 		cout << "strengths for the tool? (y-yes, n-no)" << endl;
 		char answer;
@@ -120,56 +131,65 @@ int main()
 			cin >> humanStrength;
 			Human[]->setStrength(humanStrength);
 			cout << "What you want to set the computer's strengths to?" << endl;
-			int compuerStrength;
-			cin >> compStrength;
+			int comStrength;
+			cin >> comStrength;
 			Computer[]->setStrength(comStrength);
 		}
 
-		cout << "Choose your tool (r-rock, p-paper, s-scissor, e-exit):" << endl;
+	cout << "Choose your tool (r-rock, p-paper, s-scissor, e-exit):" << endl;
 		char choice;
 		cin >> choice;
-		if (choice == ‘r’) {
-			int y = 0;
+		int y;
+		if (choice == 'r') {   //probably need another method to convert char input to integer
+			y = 0;
 			cout << "User picked rock" << endl;
 			rockCount++;
 			lastPlayerToolName = "Rock";
 		}
+
 		else if choice == 'p' {
-			int y = 1
+			 y = 1
 				cout << "User picked paper" << endl;
 				paperCount++;
 				lastPlayerToolName = "Paper";
+
 		}
 		else if (choice == 's') {
-			int	y = 2;
+			y = 2;
 			cout << "User picked scissor" << endl;
 			scissorCount++;
 			lastPlayerToolName = "Scissor";
 		}
-		else {
-			type = 'e';
-		}
-		int x = rand() % 2;
-		bool h = Human[y]->fight(Tool*Computer);
+
+		
+
+
+		bool h = Human[y]->fight(Computer);
 		int computerChoice = computerTurn();
-		bool c = Computer[computerChoice]->fight(Tool*Human);
+		bool c = Computer[computerChoice]->fight(Human);
+
 
 		if ((h == 1) && (c == 0)) {
-			cout << "Human win!" << endl;
+			cout << "Human wins!" << endl;
+			Game.sethuman_wins();
 		}
-		Game.human_wins;
+
 		else if ((h == 0) && (c == 1)) {
-			cout << "Computer win!" << endl;
-			Game.computer_wins;
+			cout << "Computer wins :-(" << endl;
+			Game.setcomputer_wins();
 		}
 		else {
 			cout << "Tie" << endl;
-		Game.ties;
+			Game.setties();
 		}
-		cout << "Human wins: " << Game.gethuman_wins << endl;
-			cout << "Computer wins: " << Game.getcomputer_wins << endl;
-			cout << "Ties: " << Game.getties << endl;
-			turnCount++;
+
+			
+
+		cout << "Human wins: " << Game.human_wins() << endl;
+		cout << "Computer wins: " << Game.computer_wins() << endl;
+		cout << "Ties: " << Game.ties() << endl;
+		turnCount++;
+
 	} //end while loop
 		
 	//Deallocate dynamic memory
@@ -178,7 +198,7 @@ int main()
 		delete Computer[i];
 	}
 
-	}
+	
 	return 0;
 }
 
