@@ -7,12 +7,16 @@
 **  Description: 
 **
 ***************************************************************************/
-//#include "stdafx.h"
-#include "RPSGame.h"
-#include "Tool.h"
+#include "stdafx.h"
+#include "RPSGame.hpp"
+#include "Tool.hpp"
+#include "Rock.hpp"
+#include "Paper.hpp"
+#include "Scissors.hpp"
+
 #include <iostream>
 #include <string>
-#include <csdtlib>
+#include <cstdlib>
 
 
 using std::cin;
@@ -24,10 +28,10 @@ int main()
 {
 
 	//Create dynamic array for
-	Tool *Human[] = { new rock(1), new paper(1), new Scissor(1) }
-	Tool *Computer[] = { new rock(1), new paper(1), new Scissor(1) }
+	Tool *Human[] = { new Rock(1), new Paper(1), new Scissors(1) };
+	Tool *Computer[] = { new Rock(1), new Paper(1), new Scissors(1) };
 	//create game object start
-	RPSGame Game();
+	RPSGame Game(Human, Computer);
 	
 	char choice = 'r';   //set as intial value
 
@@ -50,16 +54,17 @@ int main()
 	cout << "Choose your tool (r-rock, p-paper, s-scissor, e-exit):" << endl;
 		char choice;
 		cin >> choice;
+		int y;
 		if (choice == 'r') {   //probably need another method to convert char input to integer
-			int y = 0;
+			y = 0;
 			cout << "User picked rock" << endl;
 		}
-		else if choice == 'p' {
-			int y = 1
-				cout << "User picked paper" << endl;
+		else if (choice == 'p') {
+			y = 1;
+			cout << "User picked paper" << endl;
 		}
 		else if (choice == 's') {
-			int	y = 2;
+			y = 2;
 			cout << "User picked scissor" << endl;
 		}
 
@@ -68,21 +73,21 @@ int main()
 		bool c = Computer[x]->fight(Human);
 
 		if ((h == 1) && (c == 0)) {
-			cout << "Human win!" << endl;
-			Game.human_wins;
+			cout << "Human wins!" << endl;
+			Game.sethuman_wins();
 		}
 
 		else if ((h == 0) && (c == 1)) {
-			cout << "Computer win!" << endl;
-			Game.computer_wins;
+			cout << "Computer wins :-(" << endl;
+			Game.setcomputer_wins();
 		}
 		else {
 			cout << "Tie" << endl;
-			Game.ties;
+			Game.setties();
 		}
-		cout << "Human wins: " << Game.gethuman_wins << endl;
-		cout << "Computer wins: " << Game.getcomputer_wins << endl;
-		cout << "Ties: " << Game.getties << endl;
+		cout << "Human wins: " << Game.human_wins() << endl;
+		cout << "Computer wins: " << Game.computer_wins() << endl;
+		cout << "Ties: " << Game.ties() << endl;
 	} //end while loop
 		
 	//Deallocate dynamic memory
@@ -91,6 +96,6 @@ int main()
 		delete Computer[i];
 	}
 
-	}
+	
 	return 0;
 }

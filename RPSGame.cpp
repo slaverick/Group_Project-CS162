@@ -2,7 +2,7 @@
 //Date: 2/3/2017
 
 //Implementation file for RPSGAME
-#include "RPSGame.h"
+#include "RPSGame.hpp"
 
 //default constructor
 RPSGame::RPSGame() {
@@ -11,11 +11,14 @@ RPSGame::RPSGame() {
 //constructor
 RPSGame::RPSGame(Tool *human[], Tool *computer[]) {
 	Human = human;
-	Computer = computer;
+	Computer = computer;	
+	computer_wins = 0;
+	human_wins = 0;
+	ties = 0;
 }
 
 //destructor 
-RPSGame::~RPSGame() {}
+//RPSGame::~RPSGame() {}
 
 //Getters
 int RPSGame::computer_wins() {
@@ -34,7 +37,8 @@ int RPSGame::ties() {
 void RPSGame::setcomputer_wins() {
 	++computer_wins;
 }
-void	RPSGame::sethuman_wins() {
+
+void RPSGame::sethuman_wins() {
 	++human_wins;
 }
 
