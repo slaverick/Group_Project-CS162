@@ -42,8 +42,8 @@ int main()
 			cin >> humanStrength;
 			Human[]->setStrength(humanStrength);
 			cout << "What you want to set the computer's strengths to?" << endl;
-			int compuerStrength;
-			cin >> compStrength;
+			int comStrength;
+			cin >> comStrength;
 			Computer[]->setStrength(comStrength);
 		}
 
