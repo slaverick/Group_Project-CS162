@@ -40,7 +40,7 @@ int main()
 			cin >> humanStrength;
 			Human[]->setStrength(humanStrength);
 			cout << "What you want to set the computer's strengths to?" << endl;
-			int compuerStrength;
+			int computerStrength;
 			cin >> compStrength;
 			Computer[]->setStrength(comStrength);
 		}
@@ -53,19 +53,19 @@ int main()
 			cout << "User picked rock" << endl;
 		}
 		else if choice == 'p' {
-			int y = 1
-				cout << "User picked paper" << endl;
+			int y = 1;
+			cout << "User picked paper" << endl;
 		}
 		else if (choice == 's') {
-			int	y = 2;
+			int y = 2;
 			cout << "User picked scissor" << endl;
 		}
 		else {
 			type = 'e';
 		}
 		int x = rand() % 2;
-		bool h = Human[y]->fight(Tool*Computer);
-		bool c = Computer[x]->fight(Tool*Human);
+		bool h = Human[y]->fight(Computer);
+		bool c = Computer[x]->fight(Human);
 
 		if ((h == 1) && (c == 0)) {
 			cout << "Human win!" << endl;
