@@ -9,6 +9,7 @@
 ***************************************************************************/
 //#include "stdafx.h"
 #include "RPSGame.h"
+#include "Tool.h"
 #include <iostream>
 #include <string>
 #include <csdtlib>
@@ -27,9 +28,10 @@ int main()
 	Tool *Computer[] = { new rock(1), new paper(1), new Scissor(1) }
 	//create game object start
 	RPSGame Game();
-	char type = 'r';   //set as intial value
+	
+	char choice = 'r';   //set as intial value
 
-	while (type != 'e') { //Use while loop to run the game
+	while (choice != 'e') { //Use while loop to run the game
 		cout << "Welcome to Rock, Paper, Scissors! Do you want to choose different ";
 		cout << "strengths for the tool? (y-yes, n-no)" << endl;
 		char answer;
@@ -40,48 +42,47 @@ int main()
 			cin >> humanStrength;
 			Human[]->setStrength(humanStrength);
 			cout << "What you want to set the computer's strengths to?" << endl;
-			int computerStrength;
-			cin >> comStrength;
+			int compuerStrength;
+			cin >> compStrength;
 			Computer[]->setStrength(comStrength);
 		}
 
-		cout << "Choose your tool (r-rock, p-paper, s-scissor, e-exit):" << endl;
+	cout << "Choose your tool (r-rock, p-paper, s-scissor, e-exit):" << endl;
 		char choice;
 		cin >> choice;
-		if (choice == ‘r’) {
+		if (choice == 'r') {   //probably need another method to convert char input to integer
 			int y = 0;
 			cout << "User picked rock" << endl;
 		}
 		else if choice == 'p' {
-			int y = 1;
-			cout << "User picked paper" << endl;
+			int y = 1
+				cout << "User picked paper" << endl;
 		}
 		else if (choice == 's') {
-			int y = 2;
+			int	y = 2;
 			cout << "User picked scissor" << endl;
 		}
-		else {
-			type = 'e';
-		}
+
 		int x = rand() % 2;
 		bool h = Human[y]->fight(Computer);
 		bool c = Computer[x]->fight(Human);
 
 		if ((h == 1) && (c == 0)) {
 			cout << "Human win!" << endl;
+			Game.human_wins;
 		}
-		Game.human_wins;
+
 		else if ((h == 0) && (c == 1)) {
 			cout << "Computer win!" << endl;
 			Game.computer_wins;
 		}
 		else {
 			cout << "Tie" << endl;
-		Game.ties;
+			Game.ties;
 		}
 		cout << "Human wins: " << Game.gethuman_wins << endl;
-			cout << "Computer wins: " << Game.getcomputer_wins << endl;
-			cout << "Ties: " << Game.getties << endl;
+		cout << "Computer wins: " << Game.getcomputer_wins << endl;
+		cout << "Ties: " << Game.getties << endl;
 	} //end while loop
 		
 	//Deallocate dynamic memory
