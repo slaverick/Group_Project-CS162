@@ -187,9 +187,9 @@ int main()
 
 			
 
-		cout << "Human wins: " << Game.human_wins() << endl;
-		cout << "Computer wins: " << Game.computer_wins() << endl;
-		cout << "Ties: " << Game.ties() << endl;
+		cout << "Human wins: " << Game.gethuman_wins() << endl;
+		cout << "Computer wins: " << Game.getcomputer_wins() << endl;
+		cout << "Ties: " << Game.getties() << endl;
 		turnCount++;
 
 	} //end while loop

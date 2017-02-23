@@ -21,15 +21,15 @@ RPSGame::RPSGame(Tool *human[], Tool *computer[]) {
 //RPSGame::~RPSGame() {}
 
 //Getters
-int RPSGame::computer_wins() {
+int RPSGame::getcomputer_wins() {
 	return computer_wins;
 }
 
-int	RPSGame::human_wins() {
+int	RPSGame::gethuman_wins() {
 	return human_wins;
 }
 
-int RPSGame::ties() {
+int RPSGame::getties() {
 	return ties;
 }
 
