@@ -14,9 +14,9 @@ private:
 	Tool *Computer;
 public:
 	RPSGame(Tool *human[], Tool *computer[]);
-	int computer_wins();
-	int	human_wins();
-	int ties();
+	int getcomputer_wins();
+	int	gethuman_wins();
+	int getties();
 	void setcomputer_wins();
 	void sethuman_wins();
 	void setties();
