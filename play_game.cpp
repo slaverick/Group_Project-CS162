@@ -7,7 +7,7 @@
 **  Description: 
 **
 ***************************************************************************/
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "RPSGame.hpp"
 #include "Tool.hpp"
 #include "Rock.hpp"
@@ -129,11 +129,13 @@ int main()
 			cout << "What do you want to set the player's strength to?" << endl;
 			int humanStrength;
 			cin >> humanStrength;
-			Human[]->setStrength(humanStrength);
 			cout << "What you want to set the computer's strengths to?" << endl;
 			int comStrength;
 			cin >> comStrength;
-			Computer[]->setStrength(comStrength);
+			for (int i = 0; i < 3; ++i) {
+			Human[i]->setStrength(humanStrength);
+			Computer[i]->setStrength(comStrength);
+			}
 		}
 
 	cout << "Choose your tool (r-rock, p-paper, s-scissor, e-exit):" << endl;
