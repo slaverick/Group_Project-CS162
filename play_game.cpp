@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 
-#include <csdtlib>
+#include <cstdlib>
 
 
 
@@ -29,7 +29,7 @@ using std::cout;
 using std::endl;
 using std::string;
 
-int scissorsCout=0;  
+int scissorsCount=0;  
 int rockCount=0;
 int paperCount=0;
 std::string lastPlayerToolName;
@@ -65,7 +65,7 @@ int computerTurn()
      }
      else
      {
-         if ((rand) % 2 +1 ==2)
+         if (rand() % 2 +1 ==2)
          {
            if (lastPlayerToolName=="Rock")
            {
@@ -84,7 +84,7 @@ int computerTurn()
          {
             if (rockCount> paperCount)
             {
-                if (rockCount > scissorsCout)
+                if (rockCount > scissorsCount)
                 {
                     return 2;
                 }
@@ -95,7 +95,7 @@ int computerTurn()
             }
             else
             {
-                 if (paperCount > scissorsCout)
+                 if (paperCount > scissorsCount)
                 {
                     return 3;
                 }
@@ -159,7 +159,7 @@ int main()
 		else if (choice == 's') {
 			y = 2;
 			cout << "User picked scissor" << endl;
-			scissorCount++;
+			scissorsCount++;
 			lastPlayerToolName = "Scissor";
 		}
 
