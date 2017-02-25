@@ -11,7 +11,7 @@ Paper::Paper()
 Paper::Paper(int s)
 {
   strength = s;
-  type = 's';
+  type = 'p';
 }
 
 GameResult Paper::fight(Tool *t)
