@@ -11,9 +11,10 @@ Rock::Rock()
 Rock::Rock(int s)
 {
   strength = s;
+  type = 'r';
 }
 
-bool Rock::fight(Tool *t)
+GameResult Rock::fight(Tool *t)
 {
   //get computer's choice
   char c = t->getType();
@@ -23,23 +24,29 @@ bool Rock::fight(Tool *t)
   {
     case 'r':
       if (strength > t->getStrength())
-        return true;
+        return COMPUTER_WINS;
+      else if (strength == t->getStrength())
+        return TIED;
       else
-        return false;
+        return PLAYER_WINS;
       break;
 
     case 'p':
       if (static_cast<double>(strength/2)>t->getStrength())
-        return true;
+        return COMPUTER_WINS;
+       else if (static_cast<double>(strength/2)==t->getStrength())
+        return TIED;
       else
-        return false;
+        return PLAYER_WINS;
       break;
     
     case 's':
       if ((strength*2)>t->getStrength())
-         return true;
+         return COMPUTER_WINS;
+       else if ((strength*2)==t->getStrength())
+        return TIED;
       else
-        return false;
+        return PLAYER_WINS;
       break;
   }
 }

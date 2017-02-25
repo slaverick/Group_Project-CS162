@@ -11,9 +11,10 @@ Paper::Paper()
 Paper::Paper(int s)
 {
   strength = s;
+  type = 's';
 }
 
-bool Paper::fight(Tool *t)
+GameResult Paper::fight(Tool *t)
 {
   //get computer's choice
   char c = t->getType();
@@ -23,23 +24,29 @@ bool Paper::fight(Tool *t)
   {
     case 'p':
       if (strength > t->getStrength())
-        return true;
+        return COMPUTER_WINS;
+      else if (strength == t->getStrength())
+        return TIED;
       else
-        return false;
+        return PLAYER_WINS;
       break;
 
     case 's':
       if (static_cast<double>(strength/2)>t->getStrength())
-        return true;
+        return COMPUTER_WINS;
+       else if (static_cast<double>(strength/2)==t->getStrength())
+        return TIED;
       else
-        return false;
+        return PLAYER_WINS;
       break;
     
     case 'r':
       if ((strength*2)>t->getStrength())
-         return true;
+         return COMPUTER_WINS;
+       else if ((strength*2)==t->getStrength())
+        return TIED;
       else
-        return false;
+        return PLAYER_WINS;
       break;
   }
 }

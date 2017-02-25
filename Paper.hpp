@@ -13,7 +13,7 @@ public:
   	Paper(int);
 
   	//method to play a round
-  	bool fight(Tool*);
+  	GameResult fight(Tool*);
 };
 
 #endif

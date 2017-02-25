@@ -1,6 +1,8 @@
 #ifndef TOOL_HPP
 #define TOOL_HPP
 
+enum GameResult {PLAYER_WINS, COMPUTER_WINS, TIED};
+
 class Tool
 {
 protected:
@@ -21,7 +23,7 @@ public:
 	virtual char getType();
 
 	//abstract method to play a round
-	virtual bool fight(Tool*) = 0;
+	virtual GameResult fight(Tool*) = 0;
 };
 
 #endif

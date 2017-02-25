@@ -11,9 +11,10 @@ Scissors::Scissors()
 Scissors::Scissors(int s)
 {
   strength = s;
+  type = 's';
 }
 
-bool Scissors::fight(Tool *t)
+GameResult Scissors::fight(Tool *t)
 {
   //get computer's choice
   char c = t->getType();
@@ -23,23 +24,29 @@ bool Scissors::fight(Tool *t)
   {
     case 's':
       if (strength > t->getStrength())
-        return true;
+        return COMPUTER_WINS;
+      else if (strength == t->getStrength())
+        return TIED;
       else
-        return false;
+        return PLAYER_WINS;
       break;
 
     case 'r':
       if (static_cast<double>(strength/2)>t->getStrength())
-        return true;
+        return COMPUTER_WINS;
+       else if (static_cast<double>(strength/2)==t->getStrength())
+        return TIED;
       else
-        return false;
+        return PLAYER_WINS;
       break;
     
     case 'p':
       if ((strength*2)>t->getStrength())
-         return true;
+         return COMPUTER_WINS;
+       else if ((strength*2)==t->getStrength())
+        return TIED;
       else
-        return false;
+        return PLAYER_WINS;
       break;
   }
 }

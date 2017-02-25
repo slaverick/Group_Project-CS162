@@ -13,6 +13,7 @@ private:
 	Tool *Human;
 	Tool *Computer;
 public:
+	RPSGame();
 	RPSGame(Tool *human[], Tool *computer[]);
 	int getcomputer_wins();
 	int	gethuman_wins();

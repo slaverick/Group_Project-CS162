@@ -33,7 +33,7 @@ int scissorsCount=0;
 int rockCount=0;
 int paperCount=0;
 std::string lastPlayerToolName;
-int turnCount=0;
+int turnCount=1;
 
 /*
 // Name: ComputerTurn
@@ -49,7 +49,7 @@ int computerTurn()
      if (turnCount==1 || (rand() % 2 +1)==1)
      {
          int randomChoice;
-         randomChoice =  (rand() % 3) +1
+         randomChoice =  (rand() % 3) +1;
          if (randomChoice==1)
          {
              return 1;
@@ -148,9 +148,8 @@ int main()
 			rockCount++;
 			lastPlayerToolName = "Rock";
 		}
-
-		else if choice == 'p' {
-			 y = 1
+		else if (choice == 'p') {
+			 y = 1;
 				cout << "User picked paper" << endl;
 				paperCount++;
 				lastPlayerToolName = "Paper";
@@ -165,32 +164,50 @@ int main()
 
 		
 
+		if (choice != 'e')
+		{		
+			//ai decides tool to use
+			int computerChoice = computerTurn();
+		
+			//have ai tool fight player tool
+			GameResult result = Computer[(computerChoice-1)]->fight(Human[y]);
+		
+			switch (result)
+			{
+				case PLAYER_WINS:
+				{
+					cout << "Human wins!" << endl;
+					Game.sethuman_wins();
+					break;
+				}
+				case COMPUTER_WINS:
+				{
+					cout << "Computer wins :-(" << endl;
+					Game.setcomputer_wins();
+					break;
+				}
+				case TIED:
+				{
+					cout << "Tie" << endl;
+					Game.setties();
+				}
 
-		bool h = Human[y]->fight(Computer);
-		int computerChoice = computerTurn();
-		bool c = Computer[computerChoice]->fight(Human);
+				}
+		
 
 
-		if ((h == 1) && (c == 0)) {
-			cout << "Human wins!" << endl;
-			Game.sethuman_wins();
-		}
 
-		else if ((h == 0) && (c == 1)) {
-			cout << "Computer wins :-(" << endl;
-			Game.setcomputer_wins();
-		}
-		else {
-			cout << "Tie" << endl;
-			Game.setties();
-		}
+
+		
 
 			
 
-		cout << "Human wins: " << Game.gethuman_wins() << endl;
-		cout << "Computer wins: " << Game.getcomputer_wins() << endl;
-		cout << "Ties: " << Game.getties() << endl;
-		turnCount++;
+			cout << "Human wins: " << Game.gethuman_wins() << endl;
+			cout << "Computer wins: " << Game.getcomputer_wins() << endl;
+			cout << "Ties: " << Game.getties() << endl;
+			turnCount++;
+		}
+
 
 	} //end while loop
 		

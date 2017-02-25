@@ -10,8 +10,8 @@ RPSGame::RPSGame() {
 
 //constructor
 RPSGame::RPSGame(Tool *human[], Tool *computer[]) {
-	Human = human;
-	Computer = computer;	
+	Human = *(human);
+	Computer = *(computer);	
 	computer_wins = 0;
 	human_wins = 0;
 	ties = 0;
