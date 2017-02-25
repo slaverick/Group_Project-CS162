@@ -14,7 +14,7 @@ CXXFLAGS += -pedantic-errors
 LDFLAGS = -lboost_date_time
 
 all: 
-	g++ -std=c++11 getChar.cpp integerValidator.cpp menu.cpp Paper.cpp play_game.cpp Rock.cpp RPSGame.cpp Scissors.cpp Tool.cpp valChar.cpp -o groupProject_
+	g++ -std=c++11 getChar.cpp integerValidator.cpp Paper.cpp play_game.cpp Rock.cpp RPSGame.cpp Scissors.cpp Tool.cpp valChar.cpp -o groupProject_
 
 clean:
 	rm -f groupProject
