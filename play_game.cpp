@@ -55,13 +55,14 @@ int main()
 	if (answer == 'y') {
 		cout << "What do you want to set the player's strength to?" << endl;
 		int humanStrength;
-		std::string strIn;
-		cin >> strIn;
-		humanStrength = intValid(strIn);
+		int strIn;
+		cin.ignore();
+		strIn = intValid();
+		humanStrength = strIn;
 		cout << "What you want to set the computer's strengths to?" << endl;
 		int comStrength;
-		cin >> strIn;
-		comStrength = intValid(strIn);
+		strIn = intValid();
+		comStrength = strIn;
 		for (int i = 0; i < 3; ++i) {
 		Human[i]->setStrength(humanStrength);
 		Computer[i]->setStrength(comStrength);
