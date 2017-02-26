@@ -1,47 +1,30 @@
 /*************************************************************
-** Program: Project 3 - Fantasy Combat
-** Author: Scott Laverick
-** Date: 2/10/2017
-** Description:
+** Program: CS 162 Group Project Rock Paper Scissors
+** Author: Group 8
+** Date: 2/26/2017
+** Description: function to handle input validation.
+** Initialization file.
 **************************************************************/
 #include "intValid.hpp"
-#include <string>
-#include <iostream>
+
 
 using std::string;
+using std::cin;
 
-int intValid(string valIn)
+int intValid()
 {
-	int validInt;
-	string needsValid = valIn;
-	bool validNum = false;
+	std::string strNumber;
+	int retInteger;
 
-	while (validNum == false)
+	while(true)
 	{
-		for (int i = 0; i < needsValid.length(); i++)
-		{
-			if (needsValid[i] < 48 || needsValid[i]>57)
-			{
-				std::cout << "Please enter a positive, non-zero integer." << std::endl;
-				std::cin >> needsValid;
-				std::cin.clear();
-				break;
-			}
-			else
-			{
-				validInt = std::stoi(needsValid);
-				if (validInt > 0)
-					validNum = true;
-				else
-				{
-					std::cout << "Please enter a positive, non-zero integer." << std::endl;
-					std::cin >> needsValid;
-					std::cin.clear();
-					break;
-				}
-			}
-		}
-	}
+		//std::cin.ignore();
+		std::getline(cin, strNumber);
+		std::stringstream convert(strNumber);
 
-	return validInt;
+		if(convert >> retInteger && !(convert >> strNumber))
+			return retInteger;
+		std::cin.clear();
+		std::cerr <<"Input must be an integer" << std::endl;
+	}
 }
