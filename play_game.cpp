@@ -12,6 +12,9 @@
 #include "Rock.hpp"
 #include "Paper.hpp"
 #include "Scissors.hpp"
+#include "getChar.hpp"
+#include "valChar.hpp"
+#include "intValid.hpp"
 
 #include <iostream>
 #include <string>
@@ -41,16 +44,24 @@ int main()
 	
 	cout << "Welcome to Rock, Paper, Scissors! Do you want to choose different ";
 	cout << "strengths for the tool? (y-yes, n-no)" << endl;
-	char answer;
-	cin >> answer;
+	char answer = getChar();
+	while (answer != 'y' && answer != 'n')
+	{
+		//		std::cout << "You entered " << c << "." << std::endl;
+		std::cout << "Please enter 'y' for yes or 'n' for no." << std::endl;
+		answer = getChar();
+	}
 	//set custom strengths for human and computer
 	if (answer == 'y') {
 		cout << "What do you want to set the player's strength to?" << endl;
 		int humanStrength;
-		cin >> humanStrength;
+		std::string strIn;
+		cin >> strIn;
+		humanStrength = intValid(strIn);
 		cout << "What you want to set the computer's strengths to?" << endl;
 		int comStrength;
-		cin >> comStrength;
+		cin >> strIn;
+		comStrength = intValid(strIn);
 		for (int i = 0; i < 3; ++i) {
 		Human[i]->setStrength(humanStrength);
 		Computer[i]->setStrength(comStrength);
@@ -59,7 +70,8 @@ int main()
 
 	while (choice != 'e') { //Use while loop to run the game
 		cout << "Choose your tool (r-rock, p-paper, s-scissor, e-exit):" << endl;
-		cin >> choice;
+		choice = getChar();
+		choice = valChar(choice);
 		int y;
 		//set user choice
 		if (choice != 'e')
