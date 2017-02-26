@@ -24,6 +24,7 @@ int intValid(string valIn)
 			{
 				std::cout << "Please enter a positive, non-zero integer." << std::endl;
 				std::cin >> needsValid;
+				std::cin.clear();
 				break;
 			}
 			else
@@ -35,6 +36,7 @@ int intValid(string valIn)
 				{
 					std::cout << "Please enter a positive, non-zero integer." << std::endl;
 					std::cin >> needsValid;
+					std::cin.clear();
 					break;
 				}
 			}
