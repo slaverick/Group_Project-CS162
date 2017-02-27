@@ -1,6 +1,6 @@
 #/************************************************************************
 #** Program name: CS 162 - Group Project - RPS Game
-#** Author: Stephanie Gritz
+#** Author: Group 8
 #** Date: February 10, 2017
 #** Description: Rock Paper Scissors Game makefile
 #************************************************************************/
