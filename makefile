@@ -17,4 +17,4 @@ all:
 	g++ -std=c++11 getChar.cpp intValid.cpp Paper.cpp play_game.cpp Rock.cpp RPSGame.cpp Scissors.cpp Tool.cpp valChar.cpp -o groupProject_
 
 clean:
-	rm -f groupProject
+	rm -f groupProject_
