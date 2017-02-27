@@ -1,7 +1,10 @@
+/********************************************************************* 
+** Program: CS 162 Group Project Rock Paper Scissors
+** Author: Group 8
+** Date: 2/26/17
+** Description: Specification file for the RPSGame class.
+*********************************************************************/
 
-//Date: 2/3/2017
-
-//Implementation file for RPSGAME
 #include "RPSGame.hpp"
 
 //default constructor

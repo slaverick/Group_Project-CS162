@@ -1,12 +1,10 @@
-// play_game.cpp : Defines the entry point for the console application.
+/********************************************************************* 
+** Program: CS 162 Group Project Rock Paper Scissors
+** Author: Group 8
+** Date: 2/26/17
+** Description: Defines the entry point for the console application.
+*********************************************************************/
 
-/**************************************************************************
-**  Program Name: play_game.cpp
-**  Name: Vinh Dong
-**  Date: 2/20/2017
-**  Description: 
-**
-***************************************************************************/
 #include "RPSGame.hpp"
 #include "Tool.hpp"
 #include "Rock.hpp"

@@ -1,3 +1,10 @@
+/********************************************************************* 
+** Program: CS 162 Group Project Rock Paper Scissors
+** Author: Group 8
+** Date: 2/26/17
+** Description: Implementation file for the Rock class.
+*********************************************************************/
+
 #include "Rock.hpp"
 
 //default constructor
